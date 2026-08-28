@@ -68,6 +68,44 @@
             transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
+        /* Before & After Comparison Slider Styles */
+        .before-after-container {
+            position: relative;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: pan-y;
+        }
+
+        .before-img-wrap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            overflow: hidden;
+            width: 50%;
+            border-right: 3px solid #fdb813;
+        }
+
+        .slider-handle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 44px;
+            height: 44px;
+            background-color: #fdb813;
+            color: #111111;
+            border: 3px solid #ffffff;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: ew-resize;
+            z-index: 20;
+            pointer-events: none;
+        }
+
         /* Smooth scrolling for anchor links */
         html {
             scroll-behavior: smooth;
@@ -91,13 +129,21 @@
         </div>
 
         <!-- Desktop Navigation Links -->
-        <ul class="hidden md:flex space-x-8 text-sm font-semibold tracking-wide uppercase items-center">
+        <ul class="hidden md:flex space-x-7 text-sm font-semibold tracking-wide uppercase items-center">
             <li><a href="#about" class="hover:text-bee-yellow transition-colors relative group text-white">
                 About Us
                 <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-bee-yellow transition-all duration-300 group-hover:w-full"></span>
             </a></li>
             <li><a href="#services" class="hover:text-bee-yellow transition-colors relative group text-white">
                 Services
+                <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-bee-yellow transition-all duration-300 group-hover:w-full"></span>
+            </a></li>
+            <li><a href="#transformations" class="hover:text-bee-yellow transition-colors relative group text-white">
+                Results
+                <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-bee-yellow transition-all duration-300 group-hover:w-full"></span>
+            </a></li>
+            <li><a href="#reviews" class="hover:text-bee-yellow transition-colors relative group text-white">
+                Reviews
                 <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-bee-yellow transition-all duration-300 group-hover:w-full"></span>
             </a></li>
             <li><a href="#sectors" class="hover:text-bee-yellow transition-colors relative group text-white">
@@ -116,7 +162,7 @@
                 <i class="fas fa-phone-alt text-bee-yellow"></i> (571) 330-7342
             </a>
             <a href="#quote" class="bg-bee-yellow text-bee-dark px-6 py-2.5 rounded-full font-bold uppercase text-xs tracking-wider hover:bg-white hover:text-bee-dark transition-all shadow-md">
-                Get a Free Estimate
+                Get a Free Quote
             </a>
         </div>
     </nav>
@@ -132,6 +178,8 @@
         <ul class="text-center space-y-6 text-xl font-heading font-semibold text-white">
             <li><a href="#about" class="mobile-link hover:text-bee-yellow transition-colors block">About Us</a></li>
             <li><a href="#services" class="mobile-link hover:text-bee-yellow transition-colors block">Our Services</a></li>
+            <li><a href="#transformations" class="mobile-link hover:text-bee-yellow transition-colors block">Before & After Results</a></li>
+            <li><a href="#reviews" class="mobile-link hover:text-bee-yellow transition-colors block">Client Reviews</a></li>
             <li><a href="#sectors" class="mobile-link hover:text-bee-yellow transition-colors block">Commercial & Residential</a></li>
             <li><a href="#quote" class="mobile-link hover:text-bee-yellow transition-colors block">Get a Quote</a></li>
             <li class="pt-4 flex flex-col gap-3">
@@ -156,6 +204,10 @@
         <!-- Hero Content -->
         <div class="relative z-20 px-4 md:px-16 lg:px-24 max-w-4xl fade-in mt-16">
             <!-- Hero Brand Logo & Lettering -->
+            <div class="mb-4 inline-block">
+                <img src="beelogotransparent.png" alt="Bee Cleaned - Clean Spaces. Happy Places." class="h-16 sm:h-20 md:h-24 w-auto object-contain rounded-2xl bg-bee-dark/60 p-2.5 backdrop-blur-md border border-bee-yellow/40 shadow-2xl transition-transform hover:scale-105" onerror="this.onerror=null; this.src='https://placehold.co/320x100/111111/fdb813?text=BEE+CLEANED';" />
+            </div>
+
             <div class="flex items-center gap-2 mb-4">
                 <span class="w-12 h-1 bg-bee-yellow rounded-full"></span>
                 <h2 class="text-bee-yellow text-xs md:text-sm tracking-widest uppercase font-bold"><i class="fas fa-shield-halved mr-1"></i> Trusted Professional Cleaning</h2>
@@ -293,8 +345,66 @@
         
         <div class="text-center mt-14 fade-in">
             <a href="#quote" class="inline-flex items-center justify-center px-8 py-3.5 bg-bee-dark text-white rounded-full font-bold uppercase text-xs tracking-wider hover:bg-bee-yellow hover:text-bee-dark transition-all">
-                Request For A Free Quote
+                View Full Service Menu
             </a>
+        </div>
+    </section>
+
+    <!-- Interactive Before & After Showcase -->
+    <section id="transformations" class="py-24 bg-zinc-900 text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 md:px-12 relative z-10">
+            <div class="text-center mb-12 fade-in">
+                <span class="text-bee-yellow text-sm tracking-widest uppercase font-extrabold mb-2 block">Visual Proof</span>
+                <h2 class="text-3xl md:text-5xl font-heading font-extrabold text-white mb-4 uppercase">See The Transformation</h2>
+                <div class="w-24 h-1 bg-bee-yellow mx-auto rounded-full"></div>
+                <p class="text-gray-300 mt-4 max-w-2xl mx-auto text-sm md:text-base">Drag the slider horizontally or tap between project tabs to witness how we restore spaces to spotless perfection.</p>
+            </div>
+
+            <!-- Transformation Category Tabs -->
+            <div class="flex flex-wrap justify-center gap-3 mb-10 fade-in">
+                <button class="slider-tab active px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-bee-yellow text-bee-dark shadow-md transition-all" data-scene="kitchen">
+                    <i class="fas fa-kitchen-set mr-1.5"></i> Kitchen Deep Clean
+                </button>
+                <button class="slider-tab px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-zinc-800 text-gray-300 hover:bg-zinc-700 hover:text-white transition-all" data-scene="bathroom">
+                    <i class="fas fa-bath mr-1.5"></i> Bath & Tile Scrub
+                </button>
+                <button class="slider-tab px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider bg-zinc-800 text-gray-300 hover:bg-zinc-700 hover:text-white transition-all" data-scene="living">
+                    <i class="fas fa-couch mr-1.5"></i> Living & Move-Out
+                </button>
+            </div>
+
+            <!-- Comparison Slider Frame -->
+            <div class="max-w-4xl mx-auto bg-zinc-950 p-3 sm:p-4 rounded-3xl shadow-2xl border border-zinc-800 fade-in">
+                <div id="sliderContainer" class="before-after-container relative w-full h-[320px] sm:h-[440px] md:h-[500px] rounded-2xl overflow-hidden cursor-ew-resize">
+                    
+                    <!-- After Image (Background) -->
+                    <img id="afterImg" src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Spotless Clean Space After" class="absolute inset-0 w-full h-full object-cover pointer-events-none select-none" />
+                    <span class="absolute top-4 right-4 bg-bee-dark/80 text-bee-yellow font-heading font-extrabold uppercase text-xs tracking-wider px-3.5 py-1.5 rounded-full backdrop-blur-md border border-bee-yellow/40 z-10 pointer-events-none">
+                        After Bee Cleaned ✨
+                    </span>
+
+                    <!-- Before Image (Clipped Overlay) -->
+                    <div id="beforeWrap" class="before-img-wrap">
+                        <img id="beforeImg" src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Messy Space Before Cleaning" class="absolute top-0 left-0 max-w-none h-full object-cover filter brightness-90 contrast-110 pointer-events-none select-none" />
+                        <span class="absolute top-4 left-4 bg-bee-dark/80 text-white font-heading font-extrabold uppercase text-xs tracking-wider px-3.5 py-1.5 rounded-full backdrop-blur-md border border-white/20 z-10 pointer-events-none">
+                            Before Clean ⚠️
+                        </span>
+                    </div>
+
+                    <!-- Drag Scrubber Handle -->
+                    <div id="sliderHandle" class="slider-handle">
+                        <i class="fas fa-arrows-left-right text-xs"></i>
+                    </div>
+                </div>
+
+                <!-- Scene Description Bar -->
+                <div class="mt-4 px-3 py-2 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-400 gap-2">
+                    <span id="sceneDescription" class="font-medium text-gray-300"><i class="fas fa-circle-info text-bee-yellow mr-1.5"></i> Kitchen stovetop, range hood grease degreasing, and countertop sanitization.</span>
+                    <span class="text-bee-yellow font-bold uppercase tracking-wider flex items-center gap-1.5">
+                        <i class="fas fa-hand-pointer animate-pulse"></i> Slide to compare
+                    </span>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -347,6 +457,105 @@
                 <a href="#quote" class="px-8 py-3.5 bg-bee-yellow text-bee-dark font-bold rounded-full uppercase text-xs tracking-wider hover:bg-bee-dark hover:text-white transition-all duration-300 inline-block shadow-md">
                     Learn More About Us
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Verified Client Reviews Section -->
+    <section id="reviews" class="py-24 bg-slate-50 border-y border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 md:px-12">
+            
+            <!-- Section Header & Rating Summary -->
+            <div class="text-center mb-16 fade-in">
+                <div class="inline-flex items-center gap-2 bg-amber-100 text-amber-900 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
+                    <i class="fas fa-star text-bee-yellow"></i> 4.9 / 5.0 Rating Across 150+ Verified Homes & Offices
+                </div>
+                <h2 class="text-3xl md:text-5xl font-heading font-extrabold text-bee-dark mb-4 uppercase">What Our Clients Say</h2>
+                <div class="w-24 h-1 bg-bee-yellow mx-auto rounded-full"></div>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Real experiences from homeowners, property managers, and corporate offices who trust Bee Cleaned week after week.</p>
+            </div>
+
+            <!-- Review Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Review 1 -->
+                <div class="bg-white p-8 rounded-3xl shadow-md border border-gray-200/80 flex flex-col justify-between hover:shadow-xl transition-all fade-in">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <div class="flex text-bee-yellow text-sm gap-1">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <span class="bg-green-100 text-green-800 text-[11px] font-bold px-2.5 py-0.5 rounded-full flex items-center gap-1">
+                                <i class="fas fa-shield-check text-green-600"></i> Verified Client
+                            </span>
+                        </div>
+                        <p class="text-gray-700 text-sm leading-relaxed mb-6 italic">
+                            "Bee Cleaned has been cleaning our 4-bedroom home bi-weekly for over a year. Their attention to detail on baseboards, kitchen grout, and glass is unmatched. Coming home on cleaning days is our favorite feeling!"
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
+                        <div class="w-11 h-11 rounded-full bg-bee-yellow text-bee-dark font-heading font-black flex items-center justify-center text-sm shadow-sm">
+                            SM
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm text-bee-dark">Sarah Montgomery</h4>
+                            <p class="text-xs text-gray-500">Fairfax, VA &bull; Recurring House Cleaning</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-white p-8 rounded-3xl shadow-md border border-gray-200/80 flex flex-col justify-between hover:shadow-xl transition-all fade-in" style="transition-delay: 100ms;">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <div class="flex text-bee-yellow text-sm gap-1">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <span class="bg-green-100 text-green-800 text-[11px] font-bold px-2.5 py-0.5 rounded-full flex items-center gap-1">
+                                <i class="fas fa-shield-check text-green-600"></i> Verified Client
+                            </span>
+                        </div>
+                        <p class="text-gray-700 text-sm leading-relaxed mb-6 italic">
+                            "We booked a Move-Out deep clean on short notice. The crew arrived promptly on time, brought all their own eco-friendly gear, and we received 100% of our rental security deposit back with zero deductions. Highly recommend!"
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
+                        <div class="w-11 h-11 rounded-full bg-bee-dark text-bee-yellow font-heading font-black flex items-center justify-center text-sm shadow-sm">
+                            DR
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm text-bee-dark">David Reynolds</h4>
+                            <p class="text-xs text-gray-500">Arlington, VA &bull; Move Out Cleaning</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-white p-8 rounded-3xl shadow-md border border-gray-200/80 flex flex-col justify-between hover:shadow-xl transition-all fade-in" style="transition-delay: 200ms;">
+                    <div>
+                        <div class="flex justify-between items-center mb-4">
+                            <div class="flex text-bee-yellow text-sm gap-1">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <span class="bg-green-100 text-green-800 text-[11px] font-bold px-2.5 py-0.5 rounded-full flex items-center gap-1">
+                                <i class="fas fa-shield-check text-green-600"></i> Verified Client
+                            </span>
+                        </div>
+                        <p class="text-gray-700 text-sm leading-relaxed mb-6 italic">
+                            "They handle our two-floor commercial design studio three evenings per week. The staff is discreet, thorough, and always leaves the workspaces and kitchenettes spotless for our staff the next morning."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 pt-4 border-t border-gray-100">
+                        <div class="w-11 h-11 rounded-full bg-bee-yellow text-bee-dark font-heading font-black flex items-center justify-center text-sm shadow-sm">
+                            EL
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-sm text-bee-dark">Elena Laurent</h4>
+                            <p class="text-xs text-gray-500">Alexandria, VA &bull; Commercial Office Client</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -475,7 +684,9 @@
                 <ul class="space-y-3 text-xs font-medium text-gray-400">
                     <li><a href="#about" class="hover:text-bee-yellow transition-colors">About Our Crew</a></li>
                     <li><a href="#services" class="hover:text-bee-yellow transition-colors">Service Offerings</a></li>
-                    <li><a href="#sectors" class="hover:text-bee-yellow transition-colors">Commercial & Residential</a></li>
+                    <li><a href="#transformations" class="hover:text-bee-yellow transition-colors">Before & After Showcase</a></li>
+                    <li><a href="#reviews" class="hover:text-bee-yellow transition-colors">Client Reviews</a></li>
+                    <li><a href="#sectors" class="hover:text-bee-yellow transition-colors">Sectors</a></li>
                     <li><a href="#quote" class="hover:text-bee-yellow transition-colors">Request Free Estimate</a></li>
                 </ul>
             </div>
@@ -574,6 +785,124 @@
         fadeElements.forEach(el => {
             observer.observe(el);
         });
+
+        // --- Interactive Before & After Slider Logic ---
+        const sliderContainer = document.getElementById('sliderContainer');
+        const beforeWrap = document.getElementById('beforeWrap');
+        const beforeImg = document.getElementById('beforeImg');
+        const afterImg = document.getElementById('afterImg');
+        const sliderHandle = document.getElementById('sliderHandle');
+        const sceneDesc = document.getElementById('sceneDescription');
+
+        let isDragging = false;
+
+        function updateSliderPosition(clientX) {
+            if (!sliderContainer) return;
+            const rect = sliderContainer.getBoundingClientRect();
+            let xPos = clientX - rect.left;
+            
+            // Constrain between 5% and 95%
+            xPos = Math.max(rect.width * 0.05, Math.min(xPos, rect.width * 0.95));
+            const percentage = (xPos / rect.width) * 100;
+
+            beforeWrap.style.width = `${percentage}%`;
+            sliderHandle.style.left = `${percentage}%`;
+
+            // Adjust width of inside beforeImg to match container width to prevent stretching
+            beforeImg.style.width = `${rect.width}px`;
+        }
+
+        // Window resize adjustment
+        window.addEventListener('resize', () => {
+            if (sliderContainer && beforeImg) {
+                const rect = sliderContainer.getBoundingClientRect();
+                beforeImg.style.width = `${rect.width}px`;
+            }
+        });
+
+        // Mouse Drag Events
+        sliderContainer.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            updateSliderPosition(e.clientX);
+        });
+
+        window.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            updateSliderPosition(e.clientX);
+        });
+
+        window.addEventListener('mouseup', () => {
+            isDragging = false;
+        });
+
+        // Touch Drag Events
+        sliderContainer.addEventListener('touchstart', (e) => {
+            isDragging = true;
+            if (e.touches.length > 0) {
+                updateSliderPosition(e.touches[0].clientX);
+            }
+        }, { passive: true });
+
+        window.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            if (e.touches.length > 0) {
+                updateSliderPosition(e.touches[0].clientX);
+            }
+        }, { passive: true });
+
+        window.addEventListener('touchend', () => {
+            isDragging = false;
+        });
+
+        // Transformation Scene Tab Switcher
+        const sceneData = {
+            kitchen: {
+                before: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+                after: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+                desc: '<i class="fas fa-circle-info text-bee-yellow mr-1.5"></i> Kitchen stovetop, range hood grease degreasing, and countertop sanitization.'
+            },
+            bathroom: {
+                before: 'https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+                after: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+                desc: '<i class="fas fa-circle-info text-bee-yellow mr-1.5"></i> Deep grout scrubbing, soap-scum descaling, glass restoration, and fixture polishing.'
+            },
+            living: {
+                before: 'https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+                after: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+                desc: '<i class="fas fa-circle-info text-bee-yellow mr-1.5"></i> End-of-tenancy move-out vacuuming, baseboards, floor buffering, and window tracks.'
+            }
+        };
+
+        const tabBtns = document.querySelectorAll('.slider-tab');
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                tabBtns.forEach(b => {
+                    b.classList.remove('active', 'bg-bee-yellow', 'text-bee-dark');
+                    b.classList.add('bg-zinc-800', 'text-gray-300');
+                });
+
+                btn.classList.add('active', 'bg-bee-yellow', 'text-bee-dark');
+                btn.classList.remove('bg-zinc-800', 'text-gray-300');
+
+                const key = btn.getAttribute('data-scene');
+                if (sceneData[key]) {
+                    beforeImg.src = sceneData[key].before;
+                    afterImg.src = sceneData[key].after;
+                    sceneDesc.innerHTML = sceneData[key].desc;
+                    
+                    // Reset to center 50%
+                    beforeWrap.style.width = '50%';
+                    sliderHandle.style.left = '50%';
+                }
+            });
+        });
+
+        // Initialize before image width
+        setTimeout(() => {
+            if (sliderContainer && beforeImg) {
+                beforeImg.style.width = `${sliderContainer.getBoundingClientRect().width}px`;
+            }
+        }, 150);
 
         // --- Simulated Form Submission ---
         function showMessage() {
